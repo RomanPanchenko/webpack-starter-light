@@ -57,12 +57,48 @@ const config = {
                 }
             },
             {
-                test: /\.css$|\.scss$|\.sass$|\.less$/,
-                // include: [
-                //     path.resolve(__dirname, 'node_modules/')
-                // ],
-                loader: ExtractTextPlugin.extract({fallback: 'style-loader', loader: 'css-loader!sass-loader!less-loader'})
-            }
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+
+                    // Could also be write as follow:
+                    // use: 'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            query: {
+                                modules: true,
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+                            }
+                        },
+                        'postcss-loader'
+                    ]
+                }),
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+
+                    // Could also be write as follow:
+                    // use: 'css-loader?modules&importLoader=2&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader'
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            query: {
+                                modules: true,
+                                sourceMap: true,
+                                importLoaders: 2,
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+                            }
+                        },
+                        'sass-loader'
+                    ]
+                }),
+            },
+            {test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000'},
         ]
     }
 };

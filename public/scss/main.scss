@@ -1,4 +1,9 @@
-@import '../../node_modules/bootstrap/less/bootstrap.less';
-
+// Project styles loading
 @import '../../public/scss/css_example.css';
 @import '../../public/scss/scss_example.scss';
+
+
+// Bootstrap styles loading
+$icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
