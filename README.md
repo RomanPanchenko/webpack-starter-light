@@ -1,5 +1,5 @@
 # What you'll get?
-### NodeJS empty project with configured:
+### NodeJS empty project with installed:
 **1. jQuery**
 
 **2. Bootstrap**
@@ -8,6 +8,7 @@
 
 # Prerequisites
 **1. nodejs & npm**
+
 **2. webpack should be installed globally. To do it you can run:**
 ```sh
 $ sudo npm install webpack -g
@@ -40,5 +41,16 @@ $ rm -rf ./node_modules
 $ npm cache clean
 ```
 
+# Project structure
+
+**1. /public/dist - for built css & js**
+
+**2. /public/js/entry.js - entry point for Webpack builder. You may require all js files in here, and they will be put into /public/dist/main.js**
+
+**3. /public/scss/main.scss - file where you may include all css & scss files, and thay will be put into /public/dist/main.css**
+
+**4. /public/index.html - base html file to run**
+
 ### That's it!
+
 
